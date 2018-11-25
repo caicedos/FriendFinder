@@ -1,86 +1,45 @@
-
 var friendsData = require("../data/friends");
 
+module.exports = function (app) {
 
-module.exports = function(app) {
+  app.get("/api/friends", function (req, res) {
+    res.json(friendsData)
+  });
 
-    app.get("/api/friends", function(req, res){
-        res.json(friendsData)
+
+  app.post("/api/friends", function (req, res) {
+    var user = req.body;
+
+    var userScores = user.scores
+
+    var matchIndex = 0;
+    var minimumDifference = 100;
+
+    friendsData.forEach(function (value, i) {
+
+      var apiData = value.scores;
+      var surveyInput = userScores;
+      var userId = i;
+
+      totalDifference = 0;
+
+      for (var i = 0; i < apiData.length; i++) {
+        totalDifference += Math.abs(apiData[i] - surveyInput[i]);
+      }
+
+      console.log(userId)
+      console.log(totalDifference)
+
+      if (totalDifference < minimumDifference) {
+        matchIndex = userId;
+        minimumDifference = totalDifference;
+      }
+
     });
 
-    app.post("/api/friends", function(req, res){
-       
+    friendsData.push(user);
 
+    res.json(friendsData[matchIndex]);
 
-
-        var arr1 = req.body.scores;
-        var arr2
-
-
-
-        for (var i = 0; i < friendsData.length; i++) {
-
-
-            arr2 = friendsData[i].scores
-
-
-        }
-
-
-
-        //    for(var i = 0; i < friendsData.length; i++){
-
-
-        //     arr2 += [friendsData[i].scores]
-
-
-        // }
-
-        // for(var i = 0; i < friendsData.length; i++){
-
-        //     var data = friendsData[i];
-        //     arr2 = [data.scores]
-
-
-        // }
-
-        // friendsData.forEach(element => {
-        //     arr2 = element.scores
-        // });
-
-        console.log(arr1)
-        console.log(arr2)
-
-        friendsData.push(req.body);
-
-
-        var newArr = false
-
-
-        for (var i = 0; i < arr1.length; i++) {
-
-
-            var logic = parseInt(arr1[i]) === arr2[i];
-            
-               
-                    
-                    newArr += !logic
-
-
-                
-            
-            
-
-
-        }
-
-        console.log(newArr)
-
-
-
-
-
-    })
-
-
+  });
 }

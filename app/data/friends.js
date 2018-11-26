@@ -1,18 +1,24 @@
+
+
 var friendsArray = [
     {
-        name: "Donald",
+        name: "Shaggy",
+        photo: "https://vignette.wikia.nocookie.net/silly-survivor-fanon/images/a/a5/Shaggy.png/revision/latest?cb=20151210033125",
         scores: [1,5,3,1,4,5,5,1,1,2]
     },
     {
-        name: "Mike",
+        name: "Yoda",
+        photo: "https://upload.wikimedia.org/wikipedia/hu/thumb/4/45/Yoda.jpg/250px-Yoda.jpg",
         scores: [1,5,5,2,3,5,5,1,1,2]
     },
     {
-        name: "Andrew",
+        name: "Snoopy",
+        photo: "https://schulzmuseum.org/wp-content/uploads/2017/06/920608_FlyingAce-200.jpg",
         scores: [2,4,5,2,4,3,5,3,5,2]
     },
     {
-        name: "Jordan",
+        name: "Jonny",
+        photo: "https://vignette.wikia.nocookie.net/warner-bros-entertainment/images/9/97/233px-Jonny.jpg/revision/latest?cb=20160823180929",
         scores: [2,4,5,2,4,3,5,3,5,2]
     }
 ];

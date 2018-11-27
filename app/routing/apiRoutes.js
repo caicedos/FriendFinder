@@ -28,7 +28,10 @@ module.exports = function (app) {
       }
 
       console.log(userId)
+      console.log("---------------------------------------------");
+      
       console.log(totalDifference)
+      console.log("---------------------------------------------");
 
       if (totalDifference < difference) {
         matchIndex = userId;

@@ -13,7 +13,7 @@ module.exports = function (app) {
     var userScores = user.scores
 
     var matchIndex = 0;
-    var minimumDifference = 100;
+    var difference = 100;
 
     friendsData.forEach(function (value, i) {
 
@@ -30,9 +30,9 @@ module.exports = function (app) {
       console.log(userId)
       console.log(totalDifference)
 
-      if (totalDifference < minimumDifference) {
+      if (totalDifference < difference) {
         matchIndex = userId;
-        minimumDifference = totalDifference;
+        difference = totalDifference;
       }
 
     });
